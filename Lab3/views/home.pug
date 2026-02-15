@@ -1,0 +1,48 @@
+html
+  head
+    title Inventory Management
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+      h1 {
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+      }
+      .product-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .product-card h3 {
+        margin: 0 0 8px;
+        color: #007bff;
+      }
+      .product-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 20px;
+      }
+      .product-card li {
+        color: #555;
+      }
+  body
+    h1 Inventory
+    if items.length === 0
+      p No products in inventory.
+    else
+      each item in items
+        div.product-card
+          h3= item.name
+          ul
+            li Quantity: #{item.quantity}
+            li Category: #{item.category}
