@@ -2,8 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose");
 mongoose.connect("mongodb://127.0.0.1:27017/inventory");
 const app = express();
-const usersRouter = require("./routes/users")
-const productsRouter = require("./routes/products")
+const { usersRouter, productsRouter } = require("./routes");
 
 
 app.use(express.json());

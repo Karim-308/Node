@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Product = require("../models/Product");
+const { Product } = require("../models");
 
 router.post("/", async (req, res) => {
     try {
@@ -75,8 +75,8 @@ router.get("/", async (req, res) => {
         }
 
         const product = await Product.find(filter)
-            .limit(req.query.limit || 10)
-            .skip(req.query.skip || 0);
+            .limit(parseInt(req.query.limit)  || 10)
+            .skip(parseInt(req.query.skip)  || 0);
         if (!product)
             return res.status(404).json({ message: "Product not found" });
 
